@@ -33,4 +33,10 @@ public class UserController {
                 .toUri();
         return ResponseEntity.created(location).body(userCreated);
     }
+
+    @GetMapping
+    public ResponseEntity<List<User>> findAll() {
+        var users = userService.findAll();
+        return ResponseEntity.ok(users);
+    }
 }
